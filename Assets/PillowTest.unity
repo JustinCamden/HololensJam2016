@@ -128,7 +128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013535415816, guid: b2db04283121ca74495c2ee000fb4243, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2db04283121ca74495c2ee000fb4243, type: 2}
@@ -243,55 +243,42 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1934438832}
     m_Modifications:
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.0565
+      value: -0.001
       objectReference: {fileID: 0}
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.158
+      value: 0.022
       objectReference: {fileID: 0}
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.246
+      value: 1.39
       objectReference: {fileID: 0}
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4993730136413012, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+    - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394750679616408, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
-      propertyPath: m_Name
-      value: GhostPillow
-      objectReference: {fileID: 0}
-    - target: {fileID: 54906922980310940, guid: 7ce30fdb106a06f43bfade1898010d19,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394750679616408, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
-      propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7ce30fdb106a06f43bfade1898010d19, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1181510742
 Prefab:
@@ -348,21 +335,15 @@ Transform:
   m_PrefabInternal: {fileID: 1006111613}
 --- !u!1 &1535733229 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1394750679616408, guid: 7ce30fdb106a06f43bfade1898010d19,
+  m_PrefabParentObject: {fileID: 1525178865937746, guid: 9faaaed8bc1447e49b93525147ddc62e,
     type: 2}
   m_PrefabInternal: {fileID: 1116678699}
---- !u!114 &1535733230
+--- !u!114 &1535733230 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1535733229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114940715232473898, guid: 9faaaed8bc1447e49b93525147ddc62e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1116678699}
   m_Script: {fileID: 11500000, guid: 6c11eebb005169d4a8fc01a22be234eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pillow: {fileID: 0}
 --- !u!1001 &1673841270
 Prefab:
   m_ObjectHideFlags: 0
@@ -419,6 +400,10 @@ Transform:
   m_PrefabParentObject: {fileID: 4000013298573622, guid: 2ed75ffdf9031c94e8bce4b3d17b9928,
     type: 2}
   m_PrefabInternal: {fileID: 1673841270}
+--- !u!4 &1934438832 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 402774, guid: b84b73491ac53a34095000876132a211, type: 2}
+  m_PrefabInternal: {fileID: 1181510742}
 --- !u!1 &2052200116
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8f541dbc7f63840915e8d0102a2e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fightTimer: 60
+  ghostPillow: {fileID: 1535733229}
 --- !u!114 &2052200119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +467,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1512236915}
           m_MethodName: RequestFinishScan
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2052200118}
+          m_MethodName: switchState
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -541,7 +539,7 @@ Transform:
   - {fileID: 1512236916}
   - {fileID: 2052200117}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2122729570
 MonoBehaviour:
