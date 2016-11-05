@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour {
-    public GameObject pillow;
+    public GameObject[] pillows;
+    public int randNum = 0;
+
     int counter = 0;
     // Use this for initialization
     void Start () {
@@ -17,6 +19,7 @@ public class Spawn : MonoBehaviour {
 
     public void spawnPillow()
     {
-        Instantiate(pillow, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0,0,0,0));
+        randNum = Random.Range(0, pillows.Length);
+        Instantiate(pillows[randNum], new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0,0,0,0));
     }
 }
