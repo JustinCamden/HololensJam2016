@@ -8,7 +8,6 @@ public class Spawn : MonoBehaviour {
     public int randNum = 0;
     public gameManager myGame;
 
-    int counter = 0;
     // Use this for initialization
     void Start() {
 
@@ -16,8 +15,6 @@ public class Spawn : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        counter++;
-
     }
 
     public void spawnPillow()
@@ -28,9 +25,18 @@ public class Spawn : MonoBehaviour {
 
     public void spawnAnimals()
     {
-        GameObject animalTown=Instantiate(animals, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0, 0, 0, 0));
-        animalTown.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 250);
-        animalTown.GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 50);
-        myGame.switchAnimals();
+        if (myGame.myState() == 1)
+        {
+            if (!myGame.areAnimalsDown())
+            {
+                GameObject animalTown = Instantiate(animals, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0, 0, 0, 0));
+                myGame.switchAnimals();
+            }
+            else
+            {
+                Destroy(GameObject.FindGameObjectWithTag("Target"));
+                GameObject animalTown = Instantiate(animals, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0, 0, 0, 0));
+            }
+        }
     } 
 }

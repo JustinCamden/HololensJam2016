@@ -35,20 +35,6 @@ public class fusRoPillow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Debug.Log(myGame.myState());
-        if (myGame.myState() == 2)
-        {
-            if (shooting)
-            {
-                ghostPillow.SetActive(false);
-                ghostPillow.transform.SetParent(gameObject.transform);
-                ghostPillow.transform.localPosition = new Vector3(0, 0.22f, 1.39f);
-            }
-            else
-            {
-                ghostPillow.SetActive(true);
-                ghostPillow.transform.SetParent(null);
-            }
-        }
 	}
 
     public void spawnPillow()
@@ -67,6 +53,18 @@ public class fusRoPillow : MonoBehaviour {
         if (myGame.myState() == 2)
         {
             shooting = !shooting;
+            charge.Play();
+        }
+        if (!shooting)
+        {
+            ghostPillow.SetActive(true);
+            ghostPillow.transform.SetParent(null);
+        }
+        else
+        {
+            ghostPillow.SetActive(false);
+            ghostPillow.transform.SetParent(gameObject.transform);
+            ghostPillow.transform.localPosition = new Vector3(0, 0.22f, 1.39f);
         }
     }
 
