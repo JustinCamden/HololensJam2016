@@ -17,6 +17,7 @@ public class Pillow : MonoBehaviour {
 
     public void EnemyHit()
     {
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
