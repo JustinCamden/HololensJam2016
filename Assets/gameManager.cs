@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour {
     float currfightTimer;
 
     public GameObject ghostPillow;
+    public GameObject enemySpawner;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,7 @@ public class gameManager : MonoBehaviour {
             case SCANNING:
                 {
                     ghostPillow.active = false;
+                    enemySpawner.active = false;
                   
                     break;
                 }
@@ -35,7 +37,15 @@ public class gameManager : MonoBehaviour {
                     ghostPillow.transform.SetParent(null);
                     break;
                 }
-
+            case FIGHTING:
+                {
+                    break;
+                }
+            case WIN:
+                {
+                    enemySpawner.active = false;
+                    break;
+                }
         }
 	}
 
@@ -51,6 +61,8 @@ public class gameManager : MonoBehaviour {
             case BUILDING:
                 {
                     gameState = FIGHTING;
+                    enemySpawner.active = true;
+                    enemySpawner.GetComponent<Enemy_Spawner>().InitializeSpawners();
                     break;
                 }
             case FIGHTING:
