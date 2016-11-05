@@ -17,6 +17,6 @@ public class Spawn : MonoBehaviour {
 
     public void spawnPillow()
     {
-        Instantiate(pillow, new Vector3(0, 0, 0), new Quaternion(0,0,0,0));
+        Instantiate(pillow, new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0,0,0,0));
     }
 }
