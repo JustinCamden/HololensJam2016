@@ -12,16 +12,66 @@ public class Enemy_Spawner : MonoBehaviour {
     public int maxEnemies;
     List<Monster_AI> enemies;
 
+    // Spawning Range
+    public float spawnRangeMinX;
+    public float spawnRangeMaxX;
+    public float spawnRangeMinZ;
+    public float spawnRangeMaxZ;
+    public float spawnRangeHeight;
+    public float spawnHeight;
+    public float spawnCenterOffset;
+
     // Enemies
     public GameObject enemyPrefab;
 
     // Enemy spawn positions
-    public Transform[] spawnPositions;
+    public GameObject[] spawnPositions;
 
 	// Use this for initialization
 	void Start () {
         currSpawnTimer = enemySpawnTimer;
         enemies = new List<Monster_AI>();
+
+        // position spawn positions
+        for (int i = 0; i < spawnPositions.Length; i++)
+        {
+            // Get an origin within the range
+            float x = Random.Range(spawnRangeMinX, spawnRangeMaxX);
+            float z = Random.Range(spawnRangeMinZ, spawnRangeMaxZ);
+            Vector3 origin = new Vector3(x, spawnRangeHeight, z);
+
+            // Cast the ray
+            RaycastHit hit;
+            if (Physics.Raycast(origin, Vector3.down, out hit))
+            {
+                Vector3 position = hit.point;
+                position.y += spawnHeight;
+
+                // Make sure the position is never too close
+                if (position.z <= 0f && position.z > -spawnCenterOffset)
+                {
+                    position.z -= spawnCenterOffset;
+                }
+                else if (position.z >= 0f && position.z <= spawnCenterOffset)
+                {
+                    position.z += spawnCenterOffset;
+                }
+                if (position.x <= 0f && position.x > -spawnCenterOffset)
+                {
+                    position.x -= spawnCenterOffset;
+                }
+                else if (position.x >= 0f && position.x <= spawnCenterOffset)
+                {
+                    position.x += spawnCenterOffset;
+                }
+
+                spawnPositions[i].transform.position = position;
+            }
+            else
+            {
+                Destroy(spawnPositions[i]);
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -52,7 +102,7 @@ public class Enemy_Spawner : MonoBehaviour {
                 int max = spawnPositions.Length - 1;
                 int randomIndex = Random.Range(min, max);
                 Debug.Log(randomIndex);
-                GameObject enemy = Instantiate(enemyPrefab, spawnPositions[randomIndex].position, spawnPositions[randomIndex].transform.rotation) as GameObject;
+                GameObject enemy = Instantiate(enemyPrefab, spawnPositions[randomIndex].transform.position, spawnPositions[randomIndex].transform.rotation) as GameObject;
                 enemies.Add(enemy.GetComponent<Monster_AI>());
                 currSpawnTimer = enemySpawnTimer;
             }

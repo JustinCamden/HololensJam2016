@@ -13,7 +13,7 @@ public class SelectedObjectMessageSender : MonoBehaviour
     /// Currently selected object.
     /// </summary>
     private GameObject selectedObject;
-
+    private Rigidbody objectRG;
     /// <summary>
     /// Sets selection to currently focused object.
     /// </summary>
@@ -21,6 +21,9 @@ public class SelectedObjectMessageSender : MonoBehaviour
     {
         OnClearSelection();
         selectedObject = GazeManager.Instance.FocusedObject;
+        PlayerPrefs.SetString("Object", selectedObject.ToString());
+        //objectRG = selectedObject.GetComponent<Rigidbody>();
+        //objectRG.Sleep();
         SendMessageToSelectedObject("OnSelectObject");
     }
 
@@ -30,6 +33,7 @@ public class SelectedObjectMessageSender : MonoBehaviour
     public void OnClearSelection()
     {
         SendMessageToSelectedObject("OnClearSelection");
+        //objectRG.WakeUp();
         selectedObject = null;
     }
 
