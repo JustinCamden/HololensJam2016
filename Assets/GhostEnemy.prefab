@@ -624,6 +624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   rotationSpeed: 5
+  explosionPrefab: {fileID: 1828563334630808, guid: f004a68f73de65641a2538540e0c94a5,
+    type: 2}
   target: {fileID: 0}
 --- !u!137 &137353416140185016
 SkinnedMeshRenderer:

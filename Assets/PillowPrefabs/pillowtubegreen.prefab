@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 136400009492986918}
   - component: {fileID: 183378445268602360}
   - component: {fileID: 137072817590172276}
+  - component: {fileID: 114792309142460898}
   m_Layer: 0
   m_Name: pillowtubegreen
   m_TagString: Untagged
@@ -66,6 +67,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114792309142460898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964853139435582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda2b16c5d52838489a6c61fd5cbaadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1828563334630808, guid: f004a68f73de65641a2538540e0c94a5,
+    type: 2}
 --- !u!136 &136400009492986918
 CapsuleCollider:
   m_ObjectHideFlags: 1

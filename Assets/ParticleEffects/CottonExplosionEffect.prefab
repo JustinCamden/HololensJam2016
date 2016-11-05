@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4096903418490238}
   - component: {fileID: 198773952798860116}
   - component: {fileID: 199847145736882370}
+  - component: {fileID: 114750112289169076}
   m_Layer: 0
   m_Name: CottonExplosionEffect
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114750112289169076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1828563334630808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b87b9ac8c317ae541bd5426fbe63693f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTimer: 2
 --- !u!198 &198773952798860116
 ParticleSystem:
   m_ObjectHideFlags: 1
