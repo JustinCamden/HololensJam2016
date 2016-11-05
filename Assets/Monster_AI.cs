@@ -7,7 +7,7 @@ public class Monster_AI : MonoBehaviour {
     // Variables
     public float movementSpeed = 5f;
     public float rotationSpeed = 5f;
-    public 
+
 
     // World gameobject
     public Transform target;

@@ -20,6 +20,7 @@ public class fusRoPillow : MonoBehaviour {
 
     public gameManager myGame;
 
+    public AudioSource charge;
     // Use this for initialization
     void Start () {
         myPower = 0;
@@ -29,11 +30,14 @@ public class fusRoPillow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(myGame.myState());
         if (myGame.myState() == 2)
         {
+            charge.Play();
             if (myManager.HandsPressed == true)
             {
                 charging = true;
+                charge.Play();
                 if (chargeTime == powerUpTime)
                 {
                     myPower += 1;
@@ -49,6 +53,7 @@ public class fusRoPillow : MonoBehaviour {
                 if (charging == true)
                 {
                     spawnPillow();
+                    charge.Stop();
                 }
             }
         }
