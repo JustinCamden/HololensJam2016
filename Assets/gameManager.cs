@@ -34,7 +34,6 @@ public class gameManager : MonoBehaviour {
                 {
                     ghostPillow.active = false;
                     enemySpawner.active = false;
-                  
                     break;
                 }
             case BUILDING:
@@ -81,12 +80,19 @@ public class gameManager : MonoBehaviour {
                 }
             case FIGHTING:
                 {
+                    ghostPillow.active = false;
                     gameState = WIN;
                     break;
 
                 }
         }
     }
+
+    public int myState()
+    {
+        return gameState;
+    }
+
 
     public void LoseAnimal()
     {
