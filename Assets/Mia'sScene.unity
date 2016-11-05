@@ -130,6 +130,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 198773952798860116, guid: f004a68f73de65641a2538540e0c94a5,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198773952798860116, guid: f004a68f73de65641a2538540e0c94a5,
+        type: 2}
+      propertyPath: randomSeed
+      value: 450390756
+      objectReference: {fileID: 0}
+    - target: {fileID: 198773952798860116, guid: f004a68f73de65641a2538540e0c94a5,
+        type: 2}
+      propertyPath: ForceModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198773952798860116, guid: f004a68f73de65641a2538540e0c94a5,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 198773952798860116, guid: f004a68f73de65641a2538540e0c94a5,
+        type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f004a68f73de65641a2538540e0c94a5, type: 2}
   m_IsPrefabParent: 0
