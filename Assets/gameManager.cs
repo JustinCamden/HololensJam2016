@@ -39,6 +39,8 @@ public class gameManager : MonoBehaviour {
                 }
             case FIGHTING:
                 {
+                    ghostPillow.active = false;
+                    enemySpawner.active = true;
                     break;
                 }
             case WIN:
@@ -72,5 +74,10 @@ public class gameManager : MonoBehaviour {
 
                 }
         }
+    }
+
+    public int myState()
+    {
+        return gameState;
     }
 }
