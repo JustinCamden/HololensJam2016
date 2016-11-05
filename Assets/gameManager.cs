@@ -118,4 +118,13 @@ public class gameManager : MonoBehaviour {
     {
         AnimalsDown = !AnimalsDown;
     }
+
+    public bool areAnimalsDown()
+    {
+        if (AnimalsDown)
+        {
+            return true;
+        }
+        return false;
+    }
 }
