@@ -8,17 +8,23 @@ public class gameManager : MonoBehaviour {
     const int FIGHTING = 2;
     const int WIN = 3;
     const int SCANNING =0;
+    public int currentAnimals = 3;
  
     public float fightTimer = 60f;
     float currfightTimer;
 
     public GameObject ghostPillow;
     public GameObject enemySpawner;
+    public GameObject target;
 
 	// Use this for initialization
 	void Start () {
         gameState = SCANNING;
         currfightTimer = fightTimer;
+        if (enemySpawner == null)
+        {
+            enemySpawner = FindObjectOfType<Enemy_Spawner>().gameObject;
+        }
 	}
 
     // Update is called once per frame
@@ -39,6 +45,14 @@ public class gameManager : MonoBehaviour {
                 }
             case FIGHTING:
                 {
+                    if (currfightTimer >= 0f)
+                    {
+                        currfightTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        switchState();
+                    }
                     break;
                 }
             case WIN:
@@ -72,5 +86,19 @@ public class gameManager : MonoBehaviour {
 
                 }
         }
+    }
+
+    public void LoseAnimal()
+    {
+        currentAnimals--;
+        if (currentAnimals <= 0)
+        {
+            Lose();
+        }
+    }
+
+    void Lose()
+    {
+
     }
 }
