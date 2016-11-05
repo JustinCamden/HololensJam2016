@@ -364,7 +364,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4929040792999698, guid: 9faaaed8bc1447e49b93525147ddc62e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -614,6 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myManager: {fileID: 2052200121}
+  ghostPillow: {fileID: 0}
   pillows:
   - {fileID: 1970319618624288, guid: b78fc8c86b6c1f34490cffcf0e0932f9, type: 2}
   randNum: 0
@@ -931,7 +932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecognizerStart: 0
   KeywordsAndResponses:
-  - Keyword: Finish
+  - Keyword: Ready
     KeyCode: 0
     Response:
       m_PersistentCalls:
@@ -960,7 +961,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - Keyword: Drop
+  - Keyword: Pillow
     KeyCode: 42
     Response:
       m_PersistentCalls:
@@ -976,15 +977,26 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1267151415}
+          m_MethodName: spawnPillow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - Keyword: Fire
+  - Keyword: Switch
     KeyCode: 42
     Response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1267151415}
-          m_MethodName: spawnPillow
+          m_MethodName: switchShoot
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114750112289169076}
   - component: {fileID: 82544874446029712}
   m_Layer: 0
-  m_Name: CottonExplosionEffect
+  m_Name: CottonExplosionEffectEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -17,10 +17,12 @@ public class gameManager : MonoBehaviour {
     public GameObject enemySpawner;
     public GameObject target;
 
+    bool AnimalsDown;
 	// Use this for initialization
 	void Start () {
         gameState = SCANNING;
         currfightTimer = fightTimer;
+        AnimalsDown = false;
         if (enemySpawner == null)
         {
             enemySpawner = FindObjectOfType<Enemy_Spawner>().gameObject;
@@ -38,8 +40,7 @@ public class gameManager : MonoBehaviour {
                 }
             case BUILDING:
                 {
-                    ghostPillow.active = true;
-                    ghostPillow.transform.SetParent(null);
+                   
                     break;
                 }
             case FIGHTING:
@@ -68,14 +69,19 @@ public class gameManager : MonoBehaviour {
         {
             case SCANNING:
                 {
+                    ghostPillow.active = true;
+                    ghostPillow.transform.SetParent(null);
                     gameState = BUILDING;
                     break;
                 }
             case BUILDING:
                 {
-                    gameState = FIGHTING;
-                    enemySpawner.active = true;
-                    enemySpawner.GetComponent<Enemy_Spawner>().InitializeSpawners();
+                    if (AnimalsDown)
+                    {
+                        gameState = FIGHTING;
+                        enemySpawner.active = true;
+                        enemySpawner.GetComponent<Enemy_Spawner>().InitializeSpawners();
+                    }
                     break;
                 }
             case FIGHTING:
@@ -106,5 +112,10 @@ public class gameManager : MonoBehaviour {
     void Lose()
     {
 
+    }
+
+    public void switchAnimals()
+    {
+        AnimalsDown = !AnimalsDown;
     }
 }

@@ -6,7 +6,10 @@ using HoloToolkit.Unity;
 public class fusRoPillow : MonoBehaviour {
 
     public HandsManager myManager;
+    public GameObject ghostPillow;
 
+
+    bool shooting;
     int myPower;
     const int maxPower = 10;
 
@@ -26,49 +29,45 @@ public class fusRoPillow : MonoBehaviour {
         myPower = 0;
         charging = false;
         chargeTime = 0;
+        shooting = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            spawnPillow();
-        }
         Debug.Log(myGame.myState());
         if (myGame.myState() == 2)
         {
-            charge.Play();
-            if (myManager.HandsPressed == true)
+            if (shooting)
             {
-                charging = true;
-                charge.Play();
-                if (chargeTime == powerUpTime)
-                {
-                    myPower += 1;
-                    chargeTime = 0;
-                }
-                else
-                {
-                    chargeTime++;
-                }
+                ghostPillow.SetActive(false);
+                ghostPillow.transform.SetParent(gameObject.transform);
+                ghostPillow.transform.localPosition = new Vector3(0, 0.22f, 1.39f);
             }
             else
             {
-                if (charging == true)
-                {
-                    spawnPillow();
-                    charge.Stop();
-                }
+                ghostPillow.SetActive(true);
+                ghostPillow.transform.SetParent(null);
             }
         }
 	}
 
     public void spawnPillow()
     {
-        randNum = Random.Range(0, pillows.Length);
-        GameObject myPillow=Instantiate(pillows[randNum], new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0, 0, 0, 0));
-        myPillow.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 500);
-        myPillow.GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 50);
+        if (shooting)
+        {
+            randNum = Random.Range(0, pillows.Length);
+            GameObject myPillow = Instantiate(pillows[randNum], new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0, 0, 0, 0));
+            myPillow.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 500);
+            myPillow.GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 50);
+        }
+    }
+
+    public void switchShoot()
+    {
+        if (myGame.myState() == 2)
+        {
+            shooting = !shooting;
+        }
     }
 
 }
