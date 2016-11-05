@@ -10,6 +10,7 @@ public class Monster_AI : MonoBehaviour {
 
     // World gameobject
     public Transform target;
+    Enemy_Spawner enemySpawner;
 
     // Components
     CharacterController myCharacterController;
@@ -18,6 +19,8 @@ public class Monster_AI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         myCharacterController = GetComponent<CharacterController>();
+        enemySpawner = FindObjectOfType<Enemy_Spawner>();
+        target = GameObject.FindWithTag("Target").transform;
 	}
 	
 	// Update is called once per frame
@@ -42,8 +45,18 @@ public class Monster_AI : MonoBehaviour {
         myCharacterController.Move(direction * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision coll)
+    void OnControllerColliderHit(ControllerColliderHit coll)
     {
-        // Insert code to destroy / damage target here
+        // Check to see if the object is a pillow
+        Pillow pillow = coll.gameObject.GetComponent<Pillow>();
+        if (pillow != null)
+        {
+            // Destroy other gameobject if pillow
+            pillow.EnemyHit();
+
+            // Destroy this gameobject if it is a pillow
+            enemySpawner.RemoveEnemy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }
