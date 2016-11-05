@@ -30,6 +30,10 @@ public class fusRoPillow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            spawnPillow();
+        }
         Debug.Log(myGame.myState());
         if (myGame.myState() == 2)
         {
@@ -63,7 +67,8 @@ public class fusRoPillow : MonoBehaviour {
     {
         randNum = Random.Range(0, pillows.Length);
         GameObject myPillow=Instantiate(pillows[randNum], new Vector3(transform.position.x, transform.position.y, transform.position.z), new Quaternion(0, 0, 0, 0));
-        myPillow.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * myPower);
+        myPillow.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 500);
+        myPillow.GetComponent<Rigidbody>().AddForce(gameObject.transform.up * 50);
     }
 
 }
