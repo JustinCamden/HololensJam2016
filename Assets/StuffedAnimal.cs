@@ -6,6 +6,12 @@ public class StuffedAnimal : MonoBehaviour {
 
     gameManager theGameManager;
 
+    public GameObject[] animals;
+    int currIndex = 0;
+    public int animalsCount = 3;
+
+    public GameObject explosionPrefab;
+
 	// Use this for initialization
 	void Start () {
         theGameManager = FindObjectOfType<gameManager>();
@@ -16,9 +22,14 @@ public class StuffedAnimal : MonoBehaviour {
 		
 	}
 
-    void Die()
+    public void Die()
     {
-        theGameManager.LoseAnimal();
-        Destroy(gameObject);
+        if (currIndex < animalsCount)
+        {
+            theGameManager.LoseAnimal();
+            Instantiate(explosionPrefab, animals[currIndex].transform.position, animals[currIndex].transform.rotation);
+            Destroy(animals[currIndex]);
+            currIndex++;
+        }
     }
 }

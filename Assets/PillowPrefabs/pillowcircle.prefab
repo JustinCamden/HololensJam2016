@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4231250378377430}
   - component: {fileID: 33379200944172894}
-  - component: {fileID: 64382685562238214}
   - component: {fileID: 54880910521539202}
   - component: {fileID: 137625229235440292}
   - component: {fileID: 183429936544216162}
+  - component: {fileID: 136188030883599752}
   m_Layer: 0
   m_Name: pillowcircle
   m_TagString: Untagged
@@ -37,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587893513687202}
-  m_LocalRotation: {x: 0.030279841, y: -0.013017231, z: 0.7064583, w: 0.7069869}
-  m_LocalPosition: {x: -0, y: 0, z: 1.258}
-  m_LocalScale: {x: 7.371238, y: 10.367729, z: 9.2182}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0, z: 0}
+  m_LocalScale: {x: 5, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 3.509, y: 1.399, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &33379200944172894
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -66,8 +66,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64382685562238214
-MeshCollider:
+--- !u!136 &136188030883599752
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,11 +75,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: d4d0000a07443394ca4f940074142b5b, type: 3}
+  m_Radius: 0.009999997
+  m_Height: 0.019999987
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137625229235440292
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -120,8 +119,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 9.313226e-10, y: 0.0000000060535967, z: 0.000000014901161}
-    m_Extent: {x: 0.084609814, y: 0.05307174, z: 0.11775204}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.009999996, y: 0.009999995, z: 0.009999999}
   m_DirtyAABB: 0
 --- !u!183 &183429936544216162
 Cloth:
@@ -262,5 +261,6 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   - maxDistance: 0.001
     collisionSphereDistance: 3.4028235e+38
-  m_CapsuleColliders: []
+  m_CapsuleColliders:
+  - {fileID: 0}
   m_SphereColliders: []
