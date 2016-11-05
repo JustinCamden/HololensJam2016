@@ -117,4 +117,12 @@ public class Enemy_Spawner : MonoBehaviour {
             }
         }
     }
+
+    public void DestroyEnemies()
+    {
+        foreach(Monster_AI enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+    }
 }

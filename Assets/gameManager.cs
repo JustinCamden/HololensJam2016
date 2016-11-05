@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour {
     int gameState;
@@ -8,7 +9,10 @@ public class gameManager : MonoBehaviour {
     const int FIGHTING = 2;
     const int WIN = 3;
     const int SCANNING =0;
+    const int LOSE = 4;
     public int currentAnimals = 3;
+
+    public float respawnTimer = 5f;
  
     public float fightTimer = 60f;
     float currfightTimer;
@@ -16,6 +20,8 @@ public class gameManager : MonoBehaviour {
     public GameObject ghostPillow;
     public GameObject enemySpawner;
     public GameObject target;
+
+    public TextMesh anouncerTextMesh;
 
     bool AnimalsDown;
 	// Use this for initialization
@@ -48,6 +54,8 @@ public class gameManager : MonoBehaviour {
                     if (currfightTimer >= 0f)
                     {
                         currfightTimer -= Time.deltaTime;
+                        int timer = (int)currfightTimer;
+                        anouncerTextMesh.text = "Time Remaining: " + timer.ToString();
                     }
                     else
                     {
@@ -57,7 +65,26 @@ public class gameManager : MonoBehaviour {
                 }
             case WIN:
                 {
-                    enemySpawner.active = false;
+                    if (respawnTimer >= 0f)
+                    {
+                        respawnTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        Reload();
+                    }
+                    break;
+                }
+            case LOSE:
+                {
+                    if (respawnTimer >= 0f)
+                    {
+                        respawnTimer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        Reload();
+                    }
                     break;
                 }
         }
@@ -91,6 +118,20 @@ public class gameManager : MonoBehaviour {
                     break;
 
                 }
+            case WIN:
+                {
+                    enemySpawner.GetComponent<Enemy_Spawner>().DestroyEnemies();
+                    enemySpawner.active = false;
+                    anouncerTextMesh.text = "You saved your toys! Hurray!";
+                    break;
+                }
+            case LOSE:
+                {
+                    enemySpawner.GetComponent<Enemy_Spawner>().DestroyEnemies();
+                    enemySpawner.active = false;
+                    anouncerTextMesh.text = "Oh noes! Your friends are dead!";
+                    break;
+                }
         }
     }
 
@@ -111,7 +152,7 @@ public class gameManager : MonoBehaviour {
 
     void Lose()
     {
-
+        gameState = LOSE;
     }
 
     public void switchAnimals()
@@ -126,5 +167,10 @@ public class gameManager : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    void Reload()
+    {
+        SceneManager.LoadScene(0);
     }
 }
