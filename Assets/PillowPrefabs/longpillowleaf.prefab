@@ -154,7 +154,7 @@ Cloth:
   m_WorldAccelerationScale: 1
   m_Friction: 1
   m_CollisionMassScale: 1
-  m_UseContinuousCollision: 1
+  m_UseContinuousCollision: 0
   m_UseVirtualParticles: 1
   m_SolverFrequency: 120
   m_SleepThreshold: 0.1
