@@ -31,47 +31,6 @@ public class Enemy_Spawner : MonoBehaviour {
 	void Start () {
         currSpawnTimer = enemySpawnTimer;
         enemies = new List<Monster_AI>();
-
-        // position spawn positions
-        for (int i = 0; i < spawnPositions.Length; i++)
-        {
-            // Get an origin within the range
-            float x = Random.Range(spawnRangeMinX, spawnRangeMaxX);
-            float z = Random.Range(spawnRangeMinZ, spawnRangeMaxZ);
-            Vector3 origin = new Vector3(x, spawnRangeHeight, z);
-
-            // Cast the ray
-            RaycastHit hit;
-            if (Physics.Raycast(origin, Vector3.down, out hit))
-            {
-                Vector3 position = hit.point;
-                position.y += spawnHeight;
-
-                // Make sure the position is never too close
-                if (position.z <= 0f && position.z > -spawnCenterOffset)
-                {
-                    position.z -= spawnCenterOffset;
-                }
-                else if (position.z >= 0f && position.z <= spawnCenterOffset)
-                {
-                    position.z += spawnCenterOffset;
-                }
-                if (position.x <= 0f && position.x > -spawnCenterOffset)
-                {
-                    position.x -= spawnCenterOffset;
-                }
-                else if (position.x >= 0f && position.x <= spawnCenterOffset)
-                {
-                    position.x += spawnCenterOffset;
-                }
-
-                spawnPositions[i].transform.position = position;
-            }
-            else
-            {
-                Destroy(spawnPositions[i]);
-            }
-        }
 	}
 	
 	// Update is called once per frame
@@ -113,5 +72,49 @@ public class Enemy_Spawner : MonoBehaviour {
     public void RemoveEnemy(GameObject enemy)
     {
         enemies.Remove(enemy.GetComponent<Monster_AI>());
+    }
+
+    public void InitializeSpawners()
+    {
+        // position spawn positions
+        for (int i = 0; i < spawnPositions.Length; i++)
+        {
+            // Get an origin within the range
+            float x = Random.Range(spawnRangeMinX, spawnRangeMaxX);
+            float z = Random.Range(spawnRangeMinZ, spawnRangeMaxZ);
+            Vector3 origin = new Vector3(x, spawnRangeHeight, z);
+
+            // Cast the ray
+            RaycastHit hit;
+            if (Physics.Raycast(origin, Vector3.down, out hit))
+            {
+                Vector3 position = hit.point;
+                position.y += spawnHeight;
+
+                // Make sure the position is never too close
+                if (position.z <= 0f && position.z > -spawnCenterOffset)
+                {
+                    position.z -= spawnCenterOffset;
+                }
+                else if (position.z >= 0f && position.z <= spawnCenterOffset)
+                {
+                    position.z += spawnCenterOffset;
+                }
+                if (position.x <= 0f && position.x > -spawnCenterOffset)
+                {
+                    position.x -= spawnCenterOffset;
+                }
+                else if (position.x >= 0f && position.x <= spawnCenterOffset)
+                {
+                    position.x += spawnCenterOffset;
+                }
+
+                spawnPositions[i].transform.position = position;
+            }
+            else
+            {
+                Destroy(spawnPositions[i]);
+            }
+        }
     }
 }

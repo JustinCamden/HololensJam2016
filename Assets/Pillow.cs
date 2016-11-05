@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pillow : MonoBehaviour {
+    public GameObject explosionPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class Pillow : MonoBehaviour {
 
     public void EnemyHit()
     {
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 143700888328892648}
   - component: {fileID: 114926580700439296}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

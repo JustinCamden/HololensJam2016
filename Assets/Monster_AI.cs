@@ -7,6 +7,7 @@ public class Monster_AI : MonoBehaviour {
     // Variables
     public float movementSpeed = 5f;
     public float rotationSpeed = 5f;
+    public GameObject explosionPrefab;
 
     // World gameobject
     public Transform target;
@@ -49,14 +50,29 @@ public class Monster_AI : MonoBehaviour {
     {
         // Check to see if the object is a pillow
         Pillow pillow = coll.gameObject.GetComponent<Pillow>();
+        StuffedAnimal stuffedAnimal = coll.gameObject.GetComponent<StuffedAnimal>();
         if (pillow != null)
         {
             // Destroy other gameobject if pillow
             pillow.EnemyHit();
 
             // Destroy this gameobject if it is a pillow
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
             enemySpawner.RemoveEnemy(gameObject);
             Destroy(gameObject);
+        }
+        else if (stuffedAnimal != null)
+
+        {
+            {
+                // Destroy other gameobject if pillow
+                stuffedAnimal.Die();
+
+                // Destroy this gameobject if it is a pillow
+                Instantiate(explosionPrefab, transform.position, transform.rotation);
+                enemySpawner.RemoveEnemy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 }

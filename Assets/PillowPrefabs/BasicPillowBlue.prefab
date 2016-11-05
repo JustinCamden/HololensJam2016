@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 136957787283043834}
   - component: {fileID: 183119557311666236}
   - component: {fileID: 137381926916725200}
+  - component: {fileID: 114875659759136850}
   m_Layer: 0
   m_Name: BasicPillowBlue
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970319618624288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.403}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,6 +68,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114875659759136850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1970319618624288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda2b16c5d52838489a6c61fd5cbaadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1828563334630808, guid: f004a68f73de65641a2538540e0c94a5,
+    type: 2}
 --- !u!136 &136092930130608806
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -133,8 +147,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: -0.0000021457672, z: 0}
-    m_Extent: {x: 1.5435083, y: 0.49742484, z: 1.0876517}
+    m_Center: {x: 0, y: -0.0000021606684, z: 0}
+    m_Extent: {x: 1.5435083, y: 0.49742484, z: 1.0876513}
   m_DirtyAABB: 0
 --- !u!183 &183119557311666236
 Cloth:
