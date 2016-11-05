@@ -32,7 +32,16 @@ namespace HoloToolkit.Unity
 
         private GestureManager gestureManager;
 
+
+
         private bool Manipulating { get; set; }
+
+        private Rigidbody myRG;
+
+        private void Start()
+        {
+            myRG = GetComponent<Rigidbody>();
+        }
 
         private void Awake()
         { 
@@ -68,7 +77,7 @@ namespace HoloToolkit.Unity
                 Manipulating = true;
 
                 targetInterpolator = gameObject.GetComponent<Interpolator>();
-
+               // myRG.Sleep();
                 // In order to ensure that any manipulated objects move with the user, we do all our math relative to the camera,
                 // so when we save the initial manipulation position and object position we first transform them into the camera's coordinate space
                 initialManipulationPosition = Camera.main.transform.InverseTransformPoint(gestureManager.ManipulationPosition);
@@ -78,8 +87,10 @@ namespace HoloToolkit.Unity
 
         private void EndManipulation(InteractionSourceKind sourceKind)
         {
+           // myRG.wake();
             Manipulating = false;
         }
+
 
         // Update is called once per frame
         private void Update()
@@ -113,6 +124,7 @@ namespace HoloToolkit.Unity
                 else
                 {
                     transform.position = worldObjectPosition;
+                  
                 }
             }
         }
